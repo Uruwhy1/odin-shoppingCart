@@ -1,0 +1,27 @@
+body {
+  font-family: Roboto, sans-serif, system-ui;
+  background-color: var(--background);
+  color: var(--main-text-color);
+}
+
+:root {
+  --background: #ffffff;
+  --main-text-color: #000;
+
+  --toggle-switch-shadow: rgb(156, 156, 156);
+
+
+  /* common dark/light mode styles */
+  --accent: #ff914d;
+  --disabled-element: gray;
+  --white: #fff;
+  --dark: #000;
+}
+
+:root.dark {
+  --background: #303030;
+  --main-text-color: #fff;
+
+  --toggle-switch-shadow: rgb(245, 245, 245);
+
+}
