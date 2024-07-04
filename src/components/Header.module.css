@@ -2,7 +2,6 @@
   padding: 1rem;
   border-bottom: 3px solid;
 
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +13,6 @@
 }
 
 .container .content {
-  margin-right: auto;
-
   display: flex;
   align-items: center;
 

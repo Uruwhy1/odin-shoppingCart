@@ -1,7 +1,8 @@
-/* eslint-disable react/prop-types */
 import MoonIcon from "../assets/moon.svg?react";
 import SunIcon from "../assets/sun.svg?react";
 import styles from "./ModeToggle.module.css";
+
+import PropTypes from 'prop-types'
 
 export default function ModeToggle({ mode, setMode }) {
   const toggleMode = () => {
@@ -19,3 +20,8 @@ export default function ModeToggle({ mode, setMode }) {
     </div>
   );
 }
+
+ModeToggle.propTypes = {
+  mode: PropTypes.string.isRequired,
+  setMode: PropTypes.func.isRequired
+};

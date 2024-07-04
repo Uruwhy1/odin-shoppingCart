@@ -1,5 +1,6 @@
 .modeToggle {
-  margin-right: auto;
+  position: absolute;
+  left: 2rem;
 
   display: flex;
   justify-content: center;

@@ -6,18 +6,16 @@ import storeLogoDark from "../assets/store-dark.png";
 import ShoppingCart from "../assets/shopping-cart.svg?react";
 import ModeToggle from "./ModeToggle";
 
-export default function Header({mode, setMode}) {
-  const root = document.querySelector("html");
+import PropTypes from "prop-types";
 
-
-
+export default function Header({ mode, setMode }) {
   return (
     <div className={styles.container}>
       <ModeToggle mode={mode} setMode={setMode} />
       <div className={styles.content}>
         <img
           className={styles.logo}
-          src={root.classList.contains("dark") ? storeLogoLight : storeLogoDark}
+          src={mode == "light" ? storeLogoLight : storeLogoDark}
           alt="Store Logo"
         />
         <div className={styles.options}>
@@ -30,3 +28,8 @@ export default function Header({mode, setMode}) {
     </div>
   );
 }
+
+Header.propTypes = {
+  mode: PropTypes.string.isRequired,
+  setMode: PropTypes.func.isRequired,
+};
