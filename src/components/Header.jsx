@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 
 export default function Header({ mode, setMode }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container + " header"} >
       <ModeToggle mode={mode} setMode={setMode} />
       <div className={styles.content}>
         <img

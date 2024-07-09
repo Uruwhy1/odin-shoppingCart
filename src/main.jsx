@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
 
 import "./global-styles/reset.css";
 import "./global-styles/fonts.css";
 import "./global-styles/index.css";
 
-import App from "./App.jsx";
 import Home from "./components/Home";
-import About from "./components/About";
+import Category from "./components/Category";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/about",
-        element: <About />
+        path: "/category/:keyword",
+        element: <Category />
       }
     ]
   }
