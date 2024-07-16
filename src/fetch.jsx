@@ -1,7 +1,7 @@
-export default async function fetchItems (endpoint) {
+export default async function fetchItems() {
   try {
     const response = await fetch(
-      `${"https://fakestoreapi.com/products"}${endpoint}`
+      `${"https://fakestoreapi.com/products"}$`
     );
     const data = await response.json();
     return data;

@@ -7,17 +7,21 @@ import ShoppingCart from "../assets/shopping-cart.svg?react";
 import ModeToggle from "./ModeToggle";
 
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Header({ mode, setMode }) {
   return (
-    <div className={styles.container + " header"} >
+    <div className={styles.container + " header"}>
       <ModeToggle mode={mode} setMode={setMode} />
       <div className={styles.content}>
-        <img
-          className={styles.logo}
-          src={mode == "light" ? storeLogoLight : storeLogoDark}
-          alt="Store Logo"
-        />
+        <Link to="/">
+          <img
+            className={styles.logo}
+            src={mode == "light" ? storeLogoLight : storeLogoDark}
+            alt="Store Logo"
+          />
+        </Link>
+
         <div className={styles.options}>
           <button className={styles.cart}>
             <ShoppingCart />

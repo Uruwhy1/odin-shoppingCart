@@ -18,6 +18,8 @@
   transition: all 0.1s ease-in;
   cursor: pointer;
 
+  will-change: auto;
+
 }
 .title .modeToggle p {
   font-size: 1.4em;
@@ -33,12 +35,12 @@
   fill: yellow;
 }
 .modeToggle.dark {
-  transform: rotate3D(1, 1, 1, -5deg);
+  transform: rotate3D(1, 1, 1, -8deg);
 
-  box-shadow: -8px 5px 0 var(--toggle-switch-shadow);
+  box-shadow: -8px 6px 0 var(--toggle-switch-shadow);
 }
 .modeToggle.light {
-  transform: rotate3D(1, 1, 1, 5deg);
+  transform: rotate3D(1, 1, 1, 8deg);
 
-  box-shadow: 8px 5px 0 var(--toggle-switch-shadow);
+  box-shadow: 8px 6px 0 var(--toggle-switch-shadow);
 }

@@ -1,0 +1,59 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.card {
+  min-width: 300px;
+  width: 300px;
+  height: 350px;
+
+  padding: 1.5rem;
+
+  display: grid;
+  gap: 15px;
+  justify-items: stretch; /* Align items horizontally (center) */
+  align-items: center; /* Align items vertically (center) */
+  grid-template-areas:
+    "img"
+    "content"
+    "buy";
+  grid-template-rows: 120px auto auto;
+
+  outline: red 2px solid;
+}
+
+.image {
+  grid-area: img;
+  justify-self: center;
+
+  width: auto;
+  max-width: 300px;
+  max-height: 100px;
+}
+
+.content {
+  grid-area: content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buyInfo {
+  grid-area: buy;
+  align-self: flex-end;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+/* star rating styling */
+.star {
+  font-size: 1.3rem;
+}
+.checked {
+  color: orange;
+}

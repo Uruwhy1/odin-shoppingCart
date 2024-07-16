@@ -7,8 +7,7 @@ import "./global-styles/reset.css";
 import "./global-styles/fonts.css";
 import "./global-styles/index.css";
 
-import Home from "./components/Home";
-import Category from "./components/Category";
+import {Home, Category} from "./components/ProductsDisplay";
 
 const router = createBrowserRouter([
   {
