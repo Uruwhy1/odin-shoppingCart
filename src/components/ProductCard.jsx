@@ -39,7 +39,6 @@ ProductCard.propTypes = {
 function StarRating({ rate }) {
   // Round the rating to nearest half-star
   const roundedRating = Math.round(rate * 2) / 2;
-  console.log(roundedRating);
   // Create an array of 5 stars
   const stars = [];
   for (let i = 1; i <= 5; i++) {

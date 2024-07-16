@@ -6,8 +6,10 @@ body {
 
 :root {
   --background: #ffffff;
-  --main-text-color: #000;
+  --opposite-background: #303030;
 
+  --main-text-color: #000;
+  --opposite-text-color: #fff;
   --toggle-switch-shadow: rgb(105, 105, 105);
 
   /* common dark/light mode styles */
@@ -16,11 +18,15 @@ body {
   --disabled-element: gray;
   --white: #fff;
   --dark: #000;
+  --link-color: rgb(30, 185, 212); 
 }
 
 :root.dark {
   --background: #303030;
+  --opposite-background: #ffffff;
+
   --main-text-color: #fff;
+  --opposite-text-color: #000;
 
   --toggle-switch-shadow: rgb(245, 245, 245);
 }

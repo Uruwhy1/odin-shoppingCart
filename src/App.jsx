@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 import { Outlet } from "react-router-dom";
 import { NavBoxes } from "./components/NavBoxes";
 
@@ -45,6 +47,7 @@ export default function App() {
       <Header mode={mode} setMode={setMode} />
       <NavBoxes products={products} />
       <Outlet context={{ products }} />
+      <Footer />
     </div>
   );
 }
