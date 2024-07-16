@@ -10,15 +10,18 @@ body {
 
   --main-text-color: #000;
   --opposite-text-color: #fff;
+  --link-color: rgb(30, 185, 212);
+
   --toggle-switch-shadow: rgb(105, 105, 105);
 
   /* common dark/light mode styles */
   --accent: #ff914d;
   --washed-accent: #f7b790;
+  --accented-text: #793911;
+
   --disabled-element: gray;
   --white: #fff;
   --dark: #000;
-  --link-color: rgb(30, 185, 212); 
 }
 
 :root.dark {
@@ -27,6 +30,7 @@ body {
 
   --main-text-color: #fff;
   --opposite-text-color: #000;
+  --link-color: rgb(10, 140, 201);
 
   --toggle-switch-shadow: rgb(245, 245, 245);
 }

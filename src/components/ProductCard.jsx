@@ -24,9 +24,9 @@ export default function ProductCard({ product }) {
           <span> ({product.rating.count} reviews)</span>
         </div>
       </div>
-      <div className={styles.buyInfo}>
+      <div className={styles.buyContainer}>
         <p className={styles.price}>${product.price}</p>
-        <div className={styles.buyButton}>BUY</div>
+        <button className={styles.buyButton}>BUY</button>
       </div>
     </div>
   );
@@ -57,4 +57,8 @@ function StarRating({ rate }) {
     }
   }
   return <p>{stars}</p>;
+}
+
+StarRating.propTypes = {
+  rate: PropTypes.string.isRequired
 }

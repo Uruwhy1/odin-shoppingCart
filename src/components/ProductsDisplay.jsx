@@ -33,8 +33,7 @@ export function Home() {
     return shuffled.slice(0, num);
   };
 
-  // Get five random trending items
-  const trendingProducts = getRandomProducts(products, 5);
+  const trendingProducts = getRandomProducts(products, 4);
 
   return (
     <div className={styles.container}>

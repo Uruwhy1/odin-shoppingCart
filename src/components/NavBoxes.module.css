@@ -28,7 +28,7 @@
   cursor: pointer;
   transition: 0.15s transform, 0.25s background;
 
-  color: #793911;
+  color: var(--accented-text);
   text-decoration: none;
 
   font-weight: 500;
@@ -40,6 +40,8 @@
   stroke: #964715;
   width: 30px;
   height: 30px;
+
+  transition: all 0.25s;
 }
 
 .categories .bigger {
@@ -48,4 +50,9 @@
 
 .categories a.active {
   background-color: var(--accent);
+  color: var(--white);
+}
+a.active svg {
+  stroke: #fff;
+  fill: #fff;
 }
