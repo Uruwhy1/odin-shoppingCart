@@ -8,18 +8,8 @@ import ModeToggle from "./ModeToggle";
 
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 
-export default function Header({ mode, setMode, setView }) {
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => setViewportWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+export default function Header({ mode, setMode, setView, viewportWidth }) {
   const getImageSrc = () => {
     if (viewportWidth <= 1000 && mode == "light") {
       return storeLogoDark;
@@ -57,4 +47,5 @@ Header.propTypes = {
   mode: PropTypes.string.isRequired,
   setMode: PropTypes.func.isRequired,
   setView: PropTypes.func.isRequired,
+  viewportWidth: PropTypes.number.isRequired,
 };

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import ProductCardCart from "./CartProduct";
+import CartProduct from "./CartProduct";
 import styles from "./Cart.module.css";
 import PropTypes from "prop-types";
+import CartSmallProduct from "./CartProductSmall";
 
 export default function Cart({
   products,
@@ -9,6 +10,7 @@ export default function Cart({
   updateProductInCart,
   setProducts,
   setView,
+  viewportWidth,
 }) {
   const [sortCriteria, setSortCriteria] = useState("title");
   const [sortDirection, setSortDirection] = useState("asc");
@@ -61,80 +63,93 @@ export default function Cart({
 
   return (
     <div className={styles.container}>
-      <table className={styles.cartTable}>
-        <thead>
-          <tr>
-            <th>IMAGE</th>
-            <th
-              onClick={() => handleSort("title")}
-              className={
-                styles.sortable +
-                " " +
-                (sortCriteria == "title" && styles.active)
-              }
-            >
-              TITLE
-              <span className={styles.arrow}>
-                {sortCriteria === "title" &&
-                  (sortDirection === "asc" ? " ▲" : " ▼")}
-              </span>
-            </th>
-            <th
-              onClick={() => handleSort("price")}
-              className={
-                styles.sortable +
-                " " +
-                (sortCriteria == "price" && styles.active)
-              }
-            >
-              PRICE
-              <span className={styles.arrow}>
-                {sortCriteria === "price" &&
-                  (sortDirection === "asc" ? " ▲" : " ▼")}
-              </span>
-            </th>
-            <th
-              onClick={() => handleSort("inCart")}
-              className={
-                styles.sortable +
-                " " +
-                (sortCriteria == "inCart" && styles.active)
-              }
-            >
-              QUANTITY
-              <span className={styles.arrow}>
-                {sortCriteria === "inCart" &&
-                  (sortDirection === "asc" ? " ▲" : " ▼")}
-              </span>
-            </th>
-            <th
-              onClick={() => handleSort("total")}
-              className={
-                styles.sortable +
-                " " +
-                (sortCriteria == "total" && styles.active)
-              }
-            >
-              TOTAL
-              <span className={styles.arrow}>
-                {sortCriteria === "total" &&
-                  (sortDirection === "asc" ? " ▲" : " ▼")}
-              </span>
-            </th>
-            <th>ACTIONS</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedProducts.map((product) => (
-            <ProductCardCart
+      {viewportWidth > 1000 ? (
+        <table className={styles.cartTable}>
+          <thead>
+            <tr>
+              <th>IMAGE</th>
+              <th
+                onClick={() => handleSort("title")}
+                className={
+                  styles.sortable +
+                  " " +
+                  (sortCriteria === "title" && styles.active)
+                }
+              >
+                TITLE
+                <span className={styles.arrow}>
+                  {sortCriteria === "title" &&
+                    (sortDirection === "asc" ? " ▲" : " ▼")}
+                </span>
+              </th>
+              <th
+                onClick={() => handleSort("price")}
+                className={
+                  styles.sortable +
+                  " " +
+                  (sortCriteria === "price" && styles.active)
+                }
+              >
+                PRICE
+                <span className={styles.arrow}>
+                  {sortCriteria === "price" &&
+                    (sortDirection === "asc" ? " ▲" : " ▼")}
+                </span>
+              </th>
+              <th
+                onClick={() => handleSort("inCart")}
+                className={
+                  styles.sortable +
+                  " " +
+                  (sortCriteria === "inCart" && styles.active)
+                }
+              >
+                QUANTITY
+                <span className={styles.arrow}>
+                  {sortCriteria === "inCart" &&
+                    (sortDirection === "asc" ? " ▲" : " ▼")}
+                </span>
+              </th>
+              <th
+                onClick={() => handleSort("total")}
+                className={
+                  styles.sortable +
+                  " " +
+                  (sortCriteria === "total" && styles.active)
+                }
+              >
+                TOTAL
+                <span className={styles.arrow}>
+                  {sortCriteria === "total" &&
+                    (sortDirection === "asc" ? " ▲" : " ▼")}
+                </span>
+              </th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedProducts.map((product) => (
+              <CartProduct
               key={product.id}
               product={product}
               updateProductInCart={updateProductInCart}
               removeProductInCart={removeProductInCart}
             />
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <div className={styles.cardContainer}>
+          {sortedProducts.map((product) => (
+            <CartSmallProduct
+            key={product.id}
+            product={product}
+            updateProductInCart={updateProductInCart}
+            removeProductInCart={removeProductInCart}
+          />
           ))}
-        </tbody>
-      </table>
+        </div>
+      )}
       <p className={styles.total}>Total: ${totalCost.toFixed(2)}</p>
       <div className={styles.buttons}>
         <button onClick={handleBuyItems}>Order Items</button>
@@ -150,4 +165,5 @@ Cart.propTypes = {
   updateProductInCart: PropTypes.func.isRequired,
   setProducts: PropTypes.func.isRequired,
   setView: PropTypes.func.isRequired,
+  viewportWidth: PropTypes.number.isRequired
 };

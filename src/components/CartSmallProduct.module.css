@@ -1,0 +1,132 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.card {
+  min-width: 300px;
+  width: 300px;
+  height: 350px;
+
+  padding: 1.5rem;
+  background-color: var(--white);
+
+  display: grid;
+  gap: 15px;
+  justify-items: stretch; /* Align items horizontally (center) */
+  align-items: center; /* Align items vertically (center) */
+  grid-template-areas:
+    "img"
+    "content"
+    "buy";
+  grid-template-rows: 120px auto auto;
+
+  box-shadow: 0px 0px 4px 1px rgba(128, 128, 128, 0.637);
+  border-radius: 5px;
+
+  color: var(--dark);
+}
+
+.image {
+  grid-area: img;
+  justify-self: center;
+
+  width: auto;
+  max-width: 300px;
+  max-height: 100px;
+}
+
+.content {
+  grid-area: content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buyContainer {
+  grid-area: buy;
+  align-self: flex-end;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price {
+  font-weight: 700;
+}
+.buyButton {
+  background-color: var(--washed-accent);
+  padding: 0.4em 1em;
+
+  color: var(--accented-text);
+  font-weight: 500;
+
+  border: 0;
+  border-radius: 3px;
+
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.buyButton:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
+.inCart {
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+/* buttons */
+
+.button {
+  color: var(--dark);
+  font-weight: 500;
+  border: 0;
+  border-radius: 3px;
+
+  width: 2rem;
+  height: 2rem;
+
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+.removeButton {
+  background-color: var(--red);
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+.removeButton:hover {
+  background-color: var(--darker-red);
+  color: var(--white);
+}
+
+.addButton {
+  background-color: var(--green);
+}
+.addButton:hover {
+  background-color: var(--darker-green);
+  color: var(--white);
+}
+
+/* star rating styling */
+.star {
+  font-size: 1.3rem;
+}
+.checked {
+  color: orange;
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    width: 100%;
+    box-shadow: none;
+
+    border-radius: 0;
+    border-bottom: 1px gray solid;
+    border-top: 1px gray solid;
+  }
+}

@@ -11,6 +11,14 @@ export default function App() {
   const [mode, setMode] = useState("light");
   const [view, setView] = useState("buy");
 
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Set light/dark mode
   useEffect(() => {
     const userPrefersDark = window.matchMedia(
@@ -87,7 +95,12 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header mode={mode} setMode={setMode} setView={setView} />
+      <Header
+        mode={mode}
+        setMode={setMode}
+        setView={setView}
+        viewportWidth={viewportWidth}
+      />
       {view === "buy" && (
         <>
           <NavBoxes products={products} />
@@ -101,6 +114,7 @@ export default function App() {
           updateProductInCart={updateProductInCart}
           removeProductInCart={removeProductInCart}
           setView={setView}
+          viewportWidth={viewportWidth}
         />
       )}
       <Footer />

@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
-import styles from "./CartProduct.module.css";
+import styles from "./CartSmallProduct.module.css";
 
-const MAX_TITLE_LENGTH = 65;
+const MAX_TITLE_LENGTH = 45;
 
-export default function CartProduct({
+export default function CartSmallProduct({
   product,
-  removeProductInCart,
   updateProductInCart,
+  removeProductInCart,
 }) {
   // Function to truncate the title if it exceeds the maximum length
   const truncateTitle = (title, maxLength) => {
@@ -17,11 +17,9 @@ export default function CartProduct({
   };
 
   return (
-    <tr className={styles.row}>
-      <td className={styles.imageCell}>
-        <img src={product.image} alt={product.title} className={styles.image} />
-      </td>
-      <td className={styles.titleCell}>
+    <div className={styles.card}>
+      <img src={product.image} alt={product.title} className={styles.image} />
+      <div className={styles.content}>
         <h3 className={styles.title}>
           {truncateTitle(product.title, MAX_TITLE_LENGTH)}
         </h3>
@@ -29,15 +27,13 @@ export default function CartProduct({
           <StarRating rate={product.rating.rate} />
           <span> ({product.rating.count} reviews)</span>
         </div>
-      </td>
-      <td className={styles.priceCell}>${product.price}</td>
-      <td className={styles.quantityCell}>{product.inCart}</td>
-      <td className={styles.totalCell}>
-        ${(product.price * product.inCart).toFixed(2)}
-      </td>
-      <td className={styles.actionsCell}>
-        <div>
-          <button
+      </div>
+      <div className={styles.buyContainer}>
+        <p className={styles.price}>${product.price}</p>
+        {product.inCart > 0 && (
+          <span className={styles.inCart}>In Cart: {product.inCart}</span>
+        )}
+        <button
             onClick={() => {
               removeProductInCart(product.id);
             }}
@@ -53,16 +49,15 @@ export default function CartProduct({
           >
             ➕
           </button>
-        </div>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 }
 
-CartProduct.propTypes = {
+CartSmallProduct.propTypes = {
   product: PropTypes.object.isRequired,
-  removeProductInCart: PropTypes.func.isRequired,
   updateProductInCart: PropTypes.func.isRequired,
+  removeProductInCart: PropTypes.func.isRequired,
 };
 
 function StarRating({ rate }) {
@@ -85,7 +80,7 @@ function StarRating({ rate }) {
       ); // empty star
     }
   }
-  return <div className={styles.starContainer}>{stars}</div>;
+  return <p>{stars}</p>;
 }
 
 StarRating.propTypes = {
