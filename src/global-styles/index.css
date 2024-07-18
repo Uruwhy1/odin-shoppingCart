@@ -38,7 +38,7 @@ body {
 
 :root.dark {
   --page-background: #303030;
-  --opposite-background: #ffffff;
+  --opposite-background: #f7f7f7;
 
   --main-text-color: #fff;
   --opposite-text-color: #000;

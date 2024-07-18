@@ -19,7 +19,6 @@
   cursor: pointer;
 
   will-change: auto;
-
 }
 .title .modeToggle p {
   font-size: 1.4em;
@@ -43,4 +42,31 @@
   transform: rotate3D(1, 1, 1, 8deg);
 
   box-shadow: 8px 6px 0 var(--toggle-switch-shadow);
+}
+
+@media (max-width: 1525px) {
+  .modeToggle {
+    position:relative;
+    top: 0;
+    left: 0;
+
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .modeToggle {
+    position:absolute;
+    top: 1rem;
+    left: 1rem;
+
+    margin-left: 0;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .modeToggle {
+    display: none;
+  }
 }

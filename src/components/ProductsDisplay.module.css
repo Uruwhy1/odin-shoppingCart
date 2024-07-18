@@ -13,3 +13,18 @@
 
   margin: auto;
 }
+
+
+@media screen and (max-width: 900px) {
+  .cardsContainer {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .cardsContainer {
+    width: 100%;
+    gap: 2rem;
+  }
+}
+

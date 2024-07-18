@@ -67,3 +67,27 @@
 .logIn:hover {
   background-color: var(--disabled-element);
 }
+
+@media (max-width: 1525px) {
+  .container {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+  }
+  .container {
+    height: fit-content;
+    background-color: var(--opposite-background);
+
+  }
+  .options {
+    margin: 0;
+  }
+}
