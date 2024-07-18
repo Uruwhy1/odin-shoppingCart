@@ -54,6 +54,11 @@ export default function Cart({
     setView("buy");
   };
 
+  const totalCost = filteredProducts.reduce(
+    (total, product) => total + product.price * product.inCart,
+    0
+  );
+
   return (
     <div className={styles.container}>
       <table className={styles.cartTable}>
@@ -130,8 +135,9 @@ export default function Cart({
           ))}
         </tbody>
       </table>
+      <p className={styles.total}>Total: ${totalCost.toFixed(2)}</p>
       <div className={styles.buttons}>
-        <button onClick={handleBuyItems}>Buy Items</button>
+        <button onClick={handleBuyItems}>Order Items</button>
         <button onClick={handleClearCart}>Clear Cart</button>
       </div>
     </div>

@@ -9,8 +9,6 @@
 .cartTable {
   width: 100%;
 
-  margin: 20px;
-
   box-shadow: 0 0 1px 1px #c2c2c2;
   border-radius: 8px 8px 0 0 ;
 
@@ -37,6 +35,8 @@
 
   color: var(--gray-text-color);
   font-size: 0.95rem;
+
+  user-select: none;
 }
 
 .cartTable tbody tr:nth-child(even) {
@@ -72,13 +72,16 @@ background-color: var(--table-even-background);
 
 /* ---------------------------- */
 
+.total {
+  text-align: end;
+  margin: 0.5rem 0 1rem 0;
+} 
+
 .buttons {
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 1rem;
-
-
 }
 
 .buttons button {
