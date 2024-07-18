@@ -1,15 +1,8 @@
 .container {
   width: 70%;
   align-self: center;
-}
 
-.titleContainer {
-  font-size: 1.75rem;
-  margin-bottom: 10px;
-
-  text-align: center;
-
-  font-family: Helveatica, sans-serif;
+  margin: auto;
 }
 
 /* Table styles */
@@ -75,4 +68,40 @@ background-color: var(--table-even-background);
 
 .active {
   color: var(--accent) !important;
+}
+
+/* ---------------------------- */
+
+.buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+
+
+}
+
+.buttons button {
+  padding: 0.5rem 1.5rem;
+  font-family: inherit;
+  font-weight: 500;
+
+  border: 0px;
+  border-radius: 5px;
+
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+
+  background-color: var(--red);
+}
+.buttons button:hover {
+  background-color: var(--darker-red);
+  color: var(--white);
+}
+.buttons button:first-of-type {
+  background-color: var(--green);
+}
+.buttons button:first-of-type:hover {
+  background-color: var(--darker-green);
+  color: var(--white);
 }

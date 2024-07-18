@@ -1,19 +1,5 @@
-.container {
-  align-self: center;
 
-  display: flex;
-  flex-direction: column;
-  
 
-  gap: 1rem;
-
-  width: 70%;
-}
-.titleContainer {
-  align-self: center;
-  width: 90%;
-  max-width: 1200px;
-}
 
 .cardsContainer {
   display: flex;
@@ -21,5 +7,9 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
+  margin-top: 40px;
 
+  width: 70%;
+
+  margin: auto;
 }

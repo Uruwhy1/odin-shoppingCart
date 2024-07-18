@@ -28,6 +28,11 @@ body {
   --washed-accent: #f7b790;
   --accented-text: #793911;
 
+  --green: rgb(139, 240, 139);
+  --darker-green: rgb(15, 161, 15);
+  --red: rgb(250, 139, 139);
+  --darker-red: rgb(209, 14, 14);
+
   --disabled-element: gray;
 }
 

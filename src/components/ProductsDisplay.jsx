@@ -13,10 +13,6 @@ export function Category() {
   );
 
   return (
-    <div className={styles.container}>
-      <div className={styles.titleContainer}>
-        <h1 className={styles.title}>{keyword}</h1>
-      </div>
       <div className={styles.cardsContainer}>
         {filteredProducts.map((product) => (
           <ProductCard
@@ -26,7 +22,6 @@ export function Category() {
           />
         ))}
       </div>
-    </div>
   );
 }
 
@@ -38,14 +33,15 @@ export function Home() {
     // Get random items based on current date
     const getRandomProducts = (products, num) => {
       const now = new Date();
-      const seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
-      
+      const seed =
+        now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+
       const shuffled = [...products].sort((a, b) => {
         const randomA = Math.sin(seed + a.id) * 10000;
         const randomB = Math.sin(seed + b.id) * 10000;
         return randomA - randomB;
       });
-    
+
       return shuffled.slice(0, num);
     };
 
@@ -55,19 +51,14 @@ export function Home() {
   }, [products]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.titleContainer}>
-        <h1 className={styles.title}>Trending Items</h1>
-      </div>
-      <div className={styles.cardsContainer}>
-        {trendingProducts.map((product) => (
-          <ProductCard
-            updateProductInCart={updateProductInCart}
-            key={product.id}
-            product={product}
-          />
-        ))}
-      </div>
+    <div className={styles.cardsContainer}>
+      {trendingProducts.map((product) => (
+        <ProductCard
+          updateProductInCart={updateProductInCart}
+          key={product.id}
+          product={product}
+        />
+      ))}
     </div>
   );
 }

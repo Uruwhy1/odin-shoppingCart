@@ -59,19 +59,19 @@
 }
 
 .removeButton {
-  background-color: rgb(250, 139, 139);
+  background-color: var(--red);
   margin-right: 1rem;
 }
 .removeButton:hover {
-  background-color: rgb(209, 14, 14);
+  background-color: var(--darker-red);
   color: var(--white);
 }
 
 .addButton {
-  background-color: rgb(139, 240, 139);
+  background-color: var(--green);
 }
 .addButton:hover {
-  background-color: rgb(15, 161, 15);
+  background-color: var(--darker-green);
   color: var(--white);
 }
 

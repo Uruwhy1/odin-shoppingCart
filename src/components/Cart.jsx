@@ -7,9 +7,11 @@ export default function Cart({
   products,
   removeProductInCart,
   updateProductInCart,
+  setProducts,
+  setView,
 }) {
-  const [sortCriteria, setSortCriteria] = useState("title"); // Default sort by title
-  const [sortDirection, setSortDirection] = useState("asc"); // Default ascending order
+  const [sortCriteria, setSortCriteria] = useState("title");
+  const [sortDirection, setSortDirection] = useState("asc");
 
   const filteredProducts = products.filter((product) => product.inCart > 0);
 
@@ -40,9 +42,20 @@ export default function Cart({
 
   const sortedProducts = [...filteredProducts].sort(compareProducts);
 
+  const handleBuyItems = () => {
+    alert("Purchase successful!");
+    handleClearCart();
+  };
+
+  const handleClearCart = () => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) => ({ ...product, inCart: 0 }))
+    );
+    setView("buy");
+  };
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.titleContainer}>Shopping Cart</h1>
       <table className={styles.cartTable}>
         <thead>
           <tr>
@@ -117,6 +130,10 @@ export default function Cart({
           ))}
         </tbody>
       </table>
+      <div className={styles.buttons}>
+        <button onClick={handleBuyItems}>Buy Items</button>
+        <button onClick={handleClearCart}>Clear Cart</button>
+      </div>
     </div>
   );
 }
@@ -125,4 +142,6 @@ Cart.propTypes = {
   products: PropTypes.array.isRequired,
   removeProductInCart: PropTypes.func.isRequired,
   updateProductInCart: PropTypes.func.isRequired,
+  setProducts: PropTypes.func.isRequired,
+  setView: PropTypes.func.isRequired,
 };
