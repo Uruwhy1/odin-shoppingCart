@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ProductCardCart from "./CartProduct";
 import styles from "./Cart.module.css";
 import PropTypes from "prop-types";
