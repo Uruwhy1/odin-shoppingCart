@@ -2,14 +2,18 @@ import PropTypes from "prop-types";
 import styles from "./ProductCard.module.css";
 
 const MAX_TITLE_LENGTH = 45;
-// ProductCard.jsx
-export default function ProductCard({ product }) {
+
+export default function ProductCard({ product, updateProductInCart }) {
   // Function to truncate the title if it exceeds the maximum length
   const truncateTitle = (title, maxLength) => {
     if (title.length > maxLength) {
       return title.slice(0, maxLength) + "...";
     }
     return title;
+  };
+
+  const handleItemClick = () => {
+    updateProductInCart(product.id);
   };
 
   return (
@@ -26,7 +30,12 @@ export default function ProductCard({ product }) {
       </div>
       <div className={styles.buyContainer}>
         <p className={styles.price}>${product.price}</p>
-        <button className={styles.buyButton}>BUY</button>
+        {product.inCart > 0 && (
+          <span className={styles.inCart}>In Cart: {product.inCart}</span>
+        )}
+        <button onClick={handleItemClick} className={styles.buyButton}>
+          BUY
+        </button>
       </div>
     </div>
   );
@@ -34,6 +43,7 @@ export default function ProductCard({ product }) {
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
+  updateProductInCart: PropTypes.func.isRequired,
 };
 
 function StarRating({ rate }) {
@@ -60,5 +70,5 @@ function StarRating({ rate }) {
 }
 
 StarRating.propTypes = {
-  rate: PropTypes.string.isRequired
-}
+  rate: PropTypes.number.isRequired,
+};

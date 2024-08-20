@@ -1,18 +1,27 @@
 body {
   font-family: Roboto, sans-serif, system-ui;
-  background-color: var(--background);
+  background-color: var(--page-background);
   color: var(--main-text-color);
 }
 
 :root {
-  --background: #ffffff;
+  --page-background: #f7f7f7;
   --opposite-background: #303030;
 
   --main-text-color: #000;
   --opposite-text-color: #fff;
+  --gray-text-color: rgb(146, 146, 146);
   --link-color: rgb(30, 185, 212);
 
   --toggle-switch-shadow: rgb(105, 105, 105);
+
+  --table-background: #ffffff;
+  --table-even-background: #eeeeee;
+  --table-hover: #ddd;
+
+  --card-background: #ffffff;
+  --white: #ffffff;
+  --dark: #1d1d1d;
 
   /* common dark/light mode styles */
   --accent: #ff914d;
@@ -20,19 +29,27 @@ body {
   --accented-text: #793911;
 
   --disabled-element: gray;
-  --white: #fff;
-  --dark: #000;
 }
 
 :root.dark {
-  --background: #303030;
+  --page-background: #303030;
   --opposite-background: #ffffff;
 
   --main-text-color: #fff;
   --opposite-text-color: #000;
-  --link-color: rgb(10, 140, 201);
+  --gray-text-color: rgb(179, 179, 179);
+  --link-color: rgb(3, 157, 168);
 
   --toggle-switch-shadow: rgb(245, 245, 245);
+
+  --card-background: #303030;
+  --table-even-background: #3d3d3d;
+  --table-hover: #666666;
+
+
+  --white: #e4e4e4;
+  --dark: #000;
+
 }
 
 .container {

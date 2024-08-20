@@ -1,0 +1,78 @@
+.container {
+  width: 70%;
+  align-self: center;
+}
+
+.titleContainer {
+  font-size: 1.75rem;
+  margin-bottom: 10px;
+
+  text-align: center;
+
+  font-family: Helveatica, sans-serif;
+}
+
+/* Table styles */
+.cartTable {
+  width: 100%;
+
+  margin: 20px;
+
+  box-shadow: 0 0 1px 1px #c2c2c2;
+  border-radius: 8px 8px 0 0 ;
+
+  background-color: var(--card-background);
+
+  border-spacing: 0;
+
+  margin-top: 20px;
+}
+
+.cartTable th,
+.cartTable td {
+  min-width: 110px;
+  padding: 8px;
+  text-align: left;
+
+}
+
+.cartTable th {
+  border-bottom: 2px solid;
+
+  padding-right: 0;
+  position: relative;
+
+  color: var(--gray-text-color);
+  font-size: 0.95rem;
+}
+
+.cartTable tbody tr:nth-child(even) {
+background-color: var(--table-even-background);
+}
+.cartTable tbody tr:hover {
+  background-color: var(--table-hover);
+}
+
+.cartTable img {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.sortable {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.sortable:hover {
+  color: var(--text-color);
+}
+
+.arrow {
+  position: absolute;
+  right: 0.2em;
+  text-align: end;
+}
+
+.active {
+  color: var(--accent) !important;
+}

@@ -9,7 +9,7 @@ import ModeToggle from "./ModeToggle";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export default function Header({ mode, setMode }) {
+export default function Header({ mode, setMode, setView }) {
   return (
     <div className={styles.container + " header"}>
       <ModeToggle mode={mode} setMode={setMode} />
@@ -19,11 +19,12 @@ export default function Header({ mode, setMode }) {
             className={styles.logo}
             src={mode == "light" ? storeLogoLight : storeLogoDark}
             alt="Store Logo"
+            onClick={() => setView("buy")}
           />
         </Link>
 
         <div className={styles.options}>
-          <button className={styles.cart}>
+          <button onClick={() => setView("cart")} className={styles.cart}>
             <ShoppingCart />
           </button>
           <button className={styles.logIn}>Log In</button>
@@ -36,4 +37,5 @@ export default function Header({ mode, setMode }) {
 Header.propTypes = {
   mode: PropTypes.string.isRequired,
   setMode: PropTypes.func.isRequired,
+  setView: PropTypes.func.isRequired
 };

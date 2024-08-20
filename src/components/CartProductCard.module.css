@@ -1,0 +1,18 @@
+.card {
+  width: 600px;
+  height: 400px;
+
+  outline: red 1px solid;
+}
+.image {
+  width: 200px;
+}
+
+
+/* star rating styling */
+.star {
+  font-size: 1.3rem;
+}
+.checked {
+  color: orange;
+}
